@@ -24,7 +24,7 @@ def download_release(response: dict, repo: str, download_path: Path, regex: str)
         for asset in assets:
             if regex == '' or fullmatch(regex, asset['name']):
                 info('Downloading ' + asset['url'])
-                http_source.__get_newest_build(download_path, asset['name'], asset['url'])
+                http_source.__get_newest_build(download_path, asset['name'], asset['browser_download_url'])
                 debug('Writing ' + asset['name'] + ' into the version file')
                 version_file.write(asset['name'])
 
